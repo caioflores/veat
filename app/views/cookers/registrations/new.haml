@@ -1,0 +1,26 @@
+#home
+  .container
+    .row
+      .col-xs-12.text-center
+        = image_tag "logo.jpg", class: "img-responsive", width: "100%"
+      .col-xs-12.col-sm-4.col-sm-offset-4
+        #form-content
+          .panel.panel-default
+            .panel-body
+              = link_to cooker_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg btn-block" do
+                %i.fa.fa-facebook-official
+                %span Facebook
+              %hr
+              = form_for(resource, as: resource_name, url: cooker_registration_path) do |f|
+                = devise_error_messages!
+                .form-group
+                  = f.email_field :email, autofocus: true, required: "required", class: "form-control input-lg", placeholder: "Email:"
+                .form-group
+                  = f.password_field :password, autocomplete: "off", required: "required", class: "form-control input-lg", placeholder: "Senha:"
+                .actions
+                  = f.submit "Cadastrar", class: "btn btn-block btn-success btn-lg"
+
+    .row
+      .col-xs-12.text-center
+        %p Já possui cadastro?
+        = link_to "Faça login", login_path()

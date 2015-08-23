@@ -1,0 +1,319 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900,300)
+
+// Variables
+$success: #00bf8f
+
+// General rules
+body
+  position: relative
+  background-color: #EBEBF2
+  padding-bottom: 80px
+  *
+    font-family: 'Lato', sans-serif
+
+a:focus
+  outline: none
+
+h2
+  font-size: 20px
+
+.btn
+  border-radius: 0
+.btn-active
+  background-color: #ccc
+  color: #666
+  box-shadow: 0 -4px 0 0 $success inset
+.btn-default
+  background-color: #ccc
+  color: #aaa
+.btn-success
+  background-color: $success
+  border: none
+  transition: all .2s ease-in-out
+.btn-facebook
+  background-color: #355A9A
+  color: white
+  &:hover
+    color: #eee
+
+.navbar
+  border-radius: 0
+  background-color: transparent
+  border: 0
+  border-bottom: 3px solid darken($success, 5%)
+  background-color: $success
+  .navbar-brand
+    font-size: 2em
+    color: #fff
+    transition: color .2s ease-in-out
+    padding: 10px
+    position: absolute
+    width: 100%
+    img
+      height: 30px
+      margin: 0 auto
+
+.form-control
+  border: 0
+  box-shadow: none
+  &:focus
+    box-shadow: none
+
+label
+  font-size: 18px
+  color: #99999C
+  font-weight: normal
+  line-height: 2.2em
+
+// Form content
+#form-content
+  padding-top: 40px
+  .panel
+    border-radius: 0
+    box-shadow: none
+    border: none
+  form
+    margin-top: 20px
+    .form-group
+      input, textarea
+        background-color: #F8FAFA
+        border: 0
+        border-radius: 0
+        box-shadow: none
+      .forget-link
+        color: #8e8e93
+        text-decoration: underline
+      i
+        color: #99999C
+        cursor: default
+
+// home (landing)
+#home
+  height: 100vh
+  background-color: white
+  position: relative
+  display: flex
+  justify-content: center
+  flex-direction: column
+  border-bottom: 5px solid $success
+  img
+    width: 100%
+    padding: 40px 50px 0 50px
+
+@media screen and (max-width: 767px)
+  #home
+    height: auto
+    padding-bottom: 40px
+
+// bottom nav
+#bottom-nav
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 3
+  background-color: white
+  border-top: 1px solid #eee
+  ul
+    margin: 0
+    li
+      padding: 8px 0
+      width: calc(100% / 5)
+      float: left
+      border-left: 1px solid #eee
+      border-right: 1px solid #eee
+      &:hover
+        opacity: .8
+        > a
+          text-decoration: none
+      .nav-icon
+        width: 40px
+        height: 40px
+        background-size: cover
+      #buy
+        background-image: image-url("icons/star.png")
+      #sell
+        background-image: image-url("icons/shop.png")
+      #calendar
+        background-image: image-url("icons/calendar.png")
+      #settings
+        background-image: image-url("icons/params.png")
+      #config
+        background-image: image-url("icons/settings.png")
+      p
+        margin: 0
+        color: $success
+        font-weight: bold
+        font-size: 0.7em
+    li.active
+      background-color: $success
+      #buy
+        background-image: image-url("icons/brancos/star.png")
+      #sell
+        background-image: image-url("icons/brancos/shop.png")
+      #calendar
+        background-image: image-url("icons/brancos/calendar.png")
+      #settings
+        background-image: image-url("icons/brancos/params.png")
+      #config
+        background-image: image-url("icons/brancos/settings.png")
+      p
+        color: white
+
+// meal list
+.meal-card, .meal-card-buy
+  .heading
+    background-image: image-url("sanduiche.jpg")
+    background-size: cover
+    background-position: center
+    position: relative
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-color: rgba(0,0,0,.75)
+      z-index: 1
+    > *
+      z-index: 2
+    .unities
+      position: absolute
+      bottom: 0
+      right: 0
+      background-color: $success
+      text-align: center
+      color: #fff
+      padding: 5px 10px
+      p
+        font-weight: bold
+        font-size: 2em
+        margin: 0
+      small
+        font-weight: bold
+    .data
+      position: absolute
+      top: 0
+      right: 0
+      text-align: center
+      color: #fff
+      padding: 5px 10px
+      small
+        font-weight: bold
+    .meal-infos
+      position: absolute
+      bottom: 0
+      left: 0
+      padding: 5px 5px 5px 15px
+      width: 75%
+      h4
+        color: #fff
+        font-weight: bold
+  .price
+    font-size: 1.6em
+    font-weight: bold
+    color: $success
+  .description
+    font-size: 1.2em
+    color: #666
+.meal-card
+  .heading
+    height: 200px
+  .description
+    min-height: 3em
+
+.meal-card-buy
+  .heading
+    height: 100px
+
+// calendar list
+.calendar-card
+  height: 90px
+  margin-top: 20px
+  .event-name
+    height: 100%
+    width: 75%
+    float: left
+    background-image: image-url("sanduiche.jpg")
+    background-size: cover
+    background-position: center
+    display: flex
+    justify-content: center
+    flex-direction: column
+    padding-left: 15px
+    position: relative
+    h4
+      font-weight: bold
+      color: white
+      z-index: 2
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background-color: rgba(0,0,0,.75)
+      z-index: 1
+  .event-date
+    display: flex
+    justify-content: center
+    flex-direction: column
+    height: 100%
+    width: 25%
+    float: left
+    background-color: $success
+    color: white
+    font-weight: bold
+    h3
+      font-weight: bold
+      margin: 0
+
+// sells list
+.sell-card
+  height: 130px
+  margin-top: 20px
+  .sell-name
+    height: 80px
+    width: 100%
+    background-image: image-url("sanduiche.jpg")
+    background-size: cover
+    background-position: center
+    display: flex
+    justify-content: center
+    flex-direction: column
+    padding-left: 15px
+    position: relative
+    h4
+      font-weight: bold
+      color: white
+      z-index: 2
+    &:after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      background-color: rgba(0,0,0,.75)
+      z-index: 1
+  .sell-value
+    display: flex
+    justify-content: center
+    flex-direction: column
+    height: 45px
+    padding-left: 15px
+    width: 75%
+    float: left
+    background-color: #ccc
+    color: white
+    font-weight: bold
+    h5
+      font-weight: bold
+      margin: 0
+      color: white
+  .sell-action
+    height: 45px
+    width: 25%
+    float: left
+    background-color: $success

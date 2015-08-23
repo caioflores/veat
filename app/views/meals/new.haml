@@ -1,0 +1,47 @@
+= render "layouts/menu"
+
+.container
+  .row
+    .col-xs-6
+      = link_to "Vender", new_meal_path(), class: "btn btn-lg btn-active btn-block"
+    .col-xs-6
+      = link_to "Gerenciar", meals_managing_path(), class: "btn btn-lg btn-default btn-block"
+
+#form-content
+  .container
+    .row
+      .col-xs-12.col-sm-4.col-sm-offset-4
+        .panel.panel-default
+          .panel-body
+            %h4 O que você vai cozinhar?
+            = form_for @meal, url: { controller: "meals", action: "create"}, html: {method: 'post'} do |f|
+              .form-group
+                = f.text_area :description, :class=>"form-control input-lg", :placeholder => "Strogonoff sem glúten e sem lactose.", required: true
+              .form-group
+                = f.datetime_field :datetime, :class=>"form-control input-lg date", :placeholder => "20/12/2015", required: true
+              .form-group
+                = f.text_field :category, :class=>"form-control input-lg", :placeholder => "Vegano, vegetariano, light, diet, fitnees", required: true
+              .form-group
+                = f.text_field :adress, :class=>"form-control input-lg", :placeholder => "Rua 9 de julho", required: true
+              .form-group
+                .col-md-6
+                  = f.label "Preço (em reais)", class: "control-label"
+                .col-md-6
+                  = f.number_field :price, min: 1, step: 1, :class=>"form-control input-lg", :placeholder => "10", required: true
+                .clearfix
+              .form-group
+                .col-md-6
+                  = f.label "Participantes"
+                  %i.fa.fa-question-circle{title: "Para quantas pessoas você vai cozinhar?"}
+                .col-md-6
+                  = f.number_field :participants_max, min: 1, step: 1, :class=>"form-control input-lg", :placeholder => "0", required: true
+                .clearfix
+              .form-group
+                .checkbox
+                  %label
+                    = f.check_box :deliver, class: "form-control"
+                    Você entrega?
+              .form-group
+                %button.btn.btn-success.btn-lg.btn-block{:type => "submit"} Criar refeição
+
+= render "layouts/bottom_nav"

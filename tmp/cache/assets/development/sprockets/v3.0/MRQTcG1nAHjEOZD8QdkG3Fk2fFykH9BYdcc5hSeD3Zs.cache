@@ -1,0 +1,23 @@
+I"�(function() {
+  $(function() {
+    $(".pay").on("click", function() {
+      return swal({
+        title: 'Compra realizada com sucesso!',
+        text: 'Agradecemos a preferência',
+        type: 'success'
+      });
+    });
+    $(".send-message").on("ajax:success", function(e, data, status, xhr) {
+      $(".panel-body").append('<h4> Você <h4/><p>' + data + '</p>');
+      $("textarea").val('');
+      return console.log(data["msg"]);
+    });
+    $('.date').mask('00/00/0000');
+    $('.phone').mask('(00)00000-0000');
+    $('.cep').mask('00000-000');
+    $('.expiration').mask('00/0000');
+    return $('.code').mask('000');
+  });
+
+}).call(this);
+:ET

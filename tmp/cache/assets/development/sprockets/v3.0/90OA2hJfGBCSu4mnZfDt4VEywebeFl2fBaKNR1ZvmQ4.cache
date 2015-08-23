@@ -1,0 +1,23 @@
+I"Q(function() {
+  $(function() {
+    return $(".pay").on("click", function() {
+      return $.ajax({
+        url: "/meals/" + $('.pay').attr('id') + "/buy",
+        type: "GET",
+        dataType: "html",
+        success: function(data) {
+          return swal({
+            title: 'Sucesso!',
+            text: 'Compra realizada com sucesso!',
+            type: 'success',
+            controlnfirmButtonText: 'Cool'
+          }, function() {
+            return swal("Deleted!", "Your imaginary file has been deleted.", "success");
+          });
+        }
+      });
+    });
+  });
+
+}).call(this);
+:ET

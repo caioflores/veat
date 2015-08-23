@@ -1,0 +1,29 @@
+= render "layouts/menu"
+
+#form-content
+  .container
+    .row
+      .col-xs-12.col-sm-4.col-sm-offset-4
+        .meal-card-buy
+          .heading
+            .meal-infos
+              %h4= @meal.name
+          .panel.panel-default
+            .panel-body
+              %p.price R$ #{@meal.price}
+              %p.description
+                = @meal.description
+              = form_for '', url: { controller: "meals", action: "buy"}, html: {method: 'post'} do |f|
+                .form-group
+                  = f.text_field :number, :class=>"form-control input-lg", :placeholder => "Número do cartão"
+                .form-group
+                  = f.text_field :name, :class => "form-control input-lg", :placeholder => "Nome"
+                .form-group
+                  = f.text_field :date, :class=>"form-control input-lg expiration", :placeholder => "Data de expiração"
+                .form-group
+                  = f.text_field :code, :class=>"form-control input-lg code", :placeholder => "Código de segurança"
+                .form-group
+                  = link_to "Comprar", feed_path, class: "btn btn-lg btn-success btn-block pay"
+
+
+= render "layouts/bottom_nav"

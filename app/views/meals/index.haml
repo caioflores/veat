@@ -1,0 +1,29 @@
+= render "layouts/menu"
+
+.container
+  .row
+    .col-md-12.col-xs-12
+      %h4 O que está sendo compartilhado:
+    - @meal.each do |meal|
+      .col-xs-12.col-md-4
+        .meal-card
+          .heading
+            .data
+              %small= meal.datetime
+            .unities
+              %small restam
+              %p= remaining(meal)
+              %small unidades
+            .meal-infos
+              %h4= meal.name
+          .panel.panel-default
+            .panel-body
+              %p.price R$ #{meal.price}
+              %p.description{title: meal.description}
+                = truncate(meal.description, length: 80)
+              - if meal.participants_max > meal.participants_now
+                = link_to "Solicitar", buy_meal_path(meal.id), class: "btn btn-lg btn-block btn-success"
+              - else
+                = link_to "Esgotado", buy_meal_path(meal.id), class: "btn btn-lg btn-block btn-success disabled"
+
+= render "layouts/bottom_nav"

@@ -1,0 +1,14 @@
+I"(function() {
+  $(function() {
+    return $("pay").click(function() {
+      return swal({
+        title: 'Error!',
+        text: 'Here\'s my error message!',
+        type: 'error',
+        controlnfirmButtonText: 'Cool'
+      }, alert("tet"));
+    });
+  });
+
+}).call(this);
+:ET

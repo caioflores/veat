@@ -1,0 +1,23 @@
+I"Þ(function() {
+  var sucesso;
+
+  sucesso = function() {
+    return swal({
+      title: 'Compra realizada com sucesso!',
+      text: 'Agradecemos a preferÃªncia',
+      type: 'success'
+    }, function() {
+      return window.location.href = "/";
+    });
+  };
+
+  $(function() {
+    $('.date').mask('00/00/0000');
+    $('.phone').mask('(00)00000-0000');
+    $('.cep').mask('00000-000');
+    $('.expiration').mask('00/0000');
+    return $('.code').mask('000');
+  });
+
+}).call(this);
+:ET

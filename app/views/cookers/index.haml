@@ -1,0 +1,26 @@
+#home
+  .container
+    .row
+      .col-xs-12.text-center
+        = image_tag "logo.jpg", class: "img-responsive", width: "100%"
+      .col-xs-12.col-md-6.col-md-offset-6
+        #form-content
+          .panel.panel-default
+            .panel-body
+              = link_to cooker_omniauth_authorize_path(:facebook), class: "btn btn-facebook btn-lg btn-block" do
+                %i.fa.fa-facebook-official
+                %span Facebook
+              %hr
+              = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                .form-group
+                  = f.email_field :email, autofocus: true, class: "input-lg form-control", placeholder: "Email:"
+                .form-group
+                  = f.password_field :password, autocomplete: "off", class: "input-lg form-control", placeholder: "Senha:"
+                .form-group.text-right
+                  = link_to "Esqueci minha senha", "#", class: "forget-link"
+                .actions
+                  = f.submit "Entrar", class: "btn btn-success btn-block btn-lg"
+    .row
+      .col-xs-12.text-center
+        %p Ainda não tem cadastro?
+        = link_to "Cadastre-se grátis", registration_path()

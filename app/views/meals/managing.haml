@@ -1,0 +1,27 @@
+= render "layouts/menu"
+
+.container
+  .row
+    .col-xs-6
+      = link_to "Vender", new_meal_path(), class: "btn btn-lg btn-default btn-block"
+    .col-xs-6
+      = link_to "Gerenciar", meals_managing_path(), class: "btn btn-lg btn-active btn-block"
+  .row
+    .col-xs-12
+      .sell-card
+        .sell-name
+          %h4 Sanduíche Mix Salad
+        .sell-value
+          %h5 TOTAL: R$ 8,00
+        .sell-action.text-center
+          %button.btn.btn-block.btn-lg.btn-success Retirar
+    .col-xs-12
+      .sell-card
+        .sell-name
+          %h4 Salada Saladinha
+        .sell-value
+          %h5 TOTAL: R$ 8,00
+        .sell-action.text-center
+          %button.btn.btn-block.btn-lg.btn-success Retirar
+
+= render "layouts/bottom_nav"

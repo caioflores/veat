@@ -1,0 +1,22 @@
+I"ü(function() {
+  $(function() {
+    return $(".pay").on("click", function() {
+      return $.ajax({
+        url: "/meals/" + $('.pay').attr('id') + "/buy",
+        type: "GET",
+        dataType: "html",
+        success: function(data) {
+          swal({
+            title: 'Error!',
+            text: 'Here\'s my error message!',
+            type: 'error',
+            controlnfirmButtonText: 'Cool'
+          });
+          return setTimeout(explode, 10000);
+        }
+      });
+    });
+  });
+
+}).call(this);
+:ET

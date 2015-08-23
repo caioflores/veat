@@ -1,0 +1,22 @@
+#bottom-nav
+  %ul.list-inline.list-unstyled
+    %li.text-center{ :class => "#{'active' if params[:controller] =~ /meals/ && params[:action] =~ /index/}" }
+      = link_to meals_path do
+        .nav-icon.center-block#buy
+        %p Comprar
+    %li.text-center{ :class => "#{'active' if params[:controller] =~ /meals/ && params[:action] =~ /managing/}" }
+      = link_to meals_managing_path do
+        .nav-icon.center-block#sell
+        %p Vender
+    %li.text-center{ :class => "#{'active' if params[:controller] =~ /profiles/ && params[:action] =~ /show/}" }
+      = link_to profile_path(current_cooker.profile) do
+        .nav-icon.center-block#calendar
+        %p Calendário
+    %li.text-center{ :class => "#{'active' if params[:controller] =~ /profiles/ && params[:action] =~ /edit/}" }
+      = link_to edit_profile_path(current_cooker.profile) do
+        .nav-icon.center-block#settings
+        %p Preferências
+    %li.text-center{ :class => "#{'active' if params[:controller] =~ /registrations/ && params[:action] =~ /edit/}" }
+      = link_to edit_cooker_registration_path do
+        .nav-icon.center-block#config
+        %p Configurar

@@ -1,0 +1,16 @@
+I"Z(function() {
+  $(function() {
+    return $(".pay").on("click", function() {
+      return swal({
+        title: 'Sucesso!',
+        text: 'Compra realizada com sucesso!',
+        type: 'success',
+        controlnfirmButtonText: 'Cool'
+      }, function() {
+        return document.location.href = '/feed';
+      });
+    });
+  });
+
+}).call(this);
+:ET

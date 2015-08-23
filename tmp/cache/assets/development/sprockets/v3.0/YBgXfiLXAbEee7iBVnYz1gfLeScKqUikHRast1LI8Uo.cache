@@ -1,0 +1,23 @@
+I"(function() {
+  $(function() {
+    var timeout;
+    timeout = setTimeout("alert('Boom!');", 2000);
+    return $(".pay").on("click", function() {
+      return $.ajax({
+        url: "/meals/" + $('.pay').attr('id') + "/buy",
+        type: "GET",
+        dataType: "html",
+        success: function(data) {
+          return swal({
+            title: 'Error!',
+            text: 'Here\'s my error message!',
+            type: 'error',
+            controlnfirmButtonText: 'Cool'
+          });
+        }
+      });
+    });
+  });
+
+}).call(this);
+:ET

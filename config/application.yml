@@ -1,0 +1,6 @@
+facebook_app: '844020015694956'
+facebook_secret: '24d79c9c105ff0834b730308a498d631'
+
+production:
+  facebook_app: '844018135695144'
+  facebook_secret: 'ba3bbc88640c28e5a63a54955f1eef00'

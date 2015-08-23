@@ -1,0 +1,24 @@
+= render "layouts/menu"
+
+#form-content
+  .container
+    .row
+      .col-xs-12.col-sm-4.col-sm-offset-4
+        .panel.panel-default
+          .panel-body
+            %h4 Continue preenchendo suas informações e conclua seu cadastro.
+            = form_for @profile, url: { controller: "profiles", action: "create"}, html: {method: 'post'} do |f|
+              .form-group
+                = f.text_field :name, :class => "form-control input-lg", :placeholder => "Nome:", value: @current_cooker.name ? current_cooker.name : ""
+              .form-group
+                = f.text_field :cep, :class=>"form-control input-lg cep", :placeholder => "CEP:"
+              .form-group
+                = f.text_field :adress, :class=>"form-control input-lg", :placeholder => "Endereço:"
+              .form-group
+                = f.text_field :city, min: 1, step: 1, :class=>"form-control input-lg", :placeholder => "Cidade:"
+              .form-group
+                = f.text_field :state, :class=>"form-control input-lg", :placeholder => "Estado:"
+              .form-group
+                = f.text_field :phone, :class=>"form-control input-lg phone", :placeholder => "Celular:"
+              .actions
+                %button.btn.btn-block.btn-success.btn-lg{:type => "submit"} Continuar

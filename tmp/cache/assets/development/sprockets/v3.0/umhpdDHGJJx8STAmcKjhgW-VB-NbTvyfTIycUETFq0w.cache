@@ -1,0 +1,14 @@
+I" (function() {
+  $(function() {
+    $(".pay").on("click", function() {
+      return swal({
+        title: 'Compra realizada com sucesso!',
+        text: 'Agradecemos a preferência',
+        type: 'success'
+      });
+    });
+    return $('.date').mask('00/00/0000');
+  });
+
+}).call(this);
+:ET
